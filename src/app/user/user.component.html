@@ -1,0 +1,35 @@
+<div [ngClass] = "{ 'border': true, 'border-2': true, 'p-3': true, 'my-3': true,'bg-warning': rlRef.isActive, 'border-success': isGreen,' border-danger':!isGreen }">
+
+    <div class="user__visible-data" >
+        <div class="input-group input-group-sm mb-3" role="button">
+            <span class="input-group-text" id="inputGroup-sizing-sm"><a class="nav-link" [routerLink] = "[user._id]" routerLinkActive="active" #rlRef="routerLinkActive">ID</a></span>
+            <input type="text"  [(ngModel)] = user._id class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+            <input type="text" [(ngModel)] = user.name name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+            <input type="email" [(ngModel)] = user.email name = "email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <button type="button" class="btn btn-outline-primary" (mouseover) = 'isVisible = true' (click) = 'isVisible = false'>Other data</button>
+        <button type="button" (click) = 'updateUser()' class="btn btn-outline-success">Update</button>
+        <button type="button" (click) = 'deleteUser()' class="btn btn-outline-danger">Delete</button>
+    </div>
+
+    
+    <div class="user__invisible-data" *ngIf = 'isVisible'>
+        Street: <input type="text" [(ngModel)] = user.street name="street"> <br><br>
+        City: <input type="text" [(ngModel)] = user.city name = "city"><br><br>
+       Zipcode: <input type="text" [(ngModel)] = user.zipcode name = "zipcode">
+
+    </div>
+
+
+</div>
+
+
+<!-- <div [ngClass] = "{'bg-warning': rlRef.isActive}"  [className] = "isGreen ? 'border border-2 border-success p-3 my-3' : 'border border-2 border-danger p-3 my-3'" ></div> -->

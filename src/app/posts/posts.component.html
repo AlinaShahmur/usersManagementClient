@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-between">
+    <h3>Posts - {{user.name}}</h3>
+    <button *ngIf = 'isAddPostsShown === false' class="btn btn-primary" (click) = 'isAddPostsShown = true'>Add</button>
+</div>
+
+<div *ngIf = 'isAddPostsShown === false'>
+    <div *ngFor = 'let post of user.posts' class="my-3">
+        <div class="card w-75">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">{{post.body}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf = 'isAddPostsShown === true' class="mt-3">
+    <h5 class="text-center">New Post</h5>
+    <div class="mb-3 ">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" [(ngModel)] = "titleVal" class="form-control">
+    </div>
+    <div class="mb-3 ">
+        <label for="body">Body</label>
+        <textarea class="form-control" [(ngModel)] = "bodyVal" id="body" style="height: 100px"></textarea>
+    </div>
+
+    <div class="text-center">
+        <button  class="btn btn-secondary me-3" (click) = 'isAddPostsShown = false'>Cancel</button>
+        <button class="btn btn-primary " (click) = 'addPost()' >Add</button>
+    </div>
+
+</div>
+

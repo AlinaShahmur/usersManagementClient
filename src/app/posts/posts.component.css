@@ -1,0 +1,10 @@
+.posts-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-item {
+    border: 2px solid violet;
+    margin-bottom: 5px;
+}

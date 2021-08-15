@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-between">
+    <h3>Tasks - {{user.name}}</h3>
+    <button *ngIf = 'isAddTaskShown === false' class="btn btn-primary" (click) = 'isAddTaskShown = true'>Add</button>
+</div>
+
+<table class="table" *ngIf = 'isAddTaskShown === false'>
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Completed</th>
+        <th scope="col">Set Completed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let task of user.tasks'>
+        <td>{{task.title}}</td>
+        <td>{{task.completed}}</td>
+        <td><button class="btn btn-success" type="button" *ngIf = 'task.completed === false'  (click) = 'setCompleted(task._id)'>Mark Completed</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+<div *ngIf = 'isAddTaskShown === true' class="mt-3">
+    <h5 class="text-center">New Task</h5>
+    <div class="mb-3 ">
+        <label for="title" class="form-label">Title</label>
+        <input [(ngModel)] = 'taskTitle' type="text" id = "title" class="form-control">
+    </div>
+    
+    <div class="text-center">
+      <button class="btn btn-secondary me-3" (click) = 'isAddTaskShown = false'>Cancel</button>
+      <button class="btn btn-primary " (click) = 'addTask()' >Add</button>
+    </div>
+
+</div>
+

@@ -1,0 +1,7 @@
+.mainpage-wrapper {
+    display: flex;
+}
+
+.users {
+    flex-basis: 50%
+}

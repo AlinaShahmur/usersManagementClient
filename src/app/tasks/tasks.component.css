@@ -1,0 +1,17 @@
+.tasks-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+}
+
+.task-item {
+    border: 2px solid violet;
+    margin-bottom: 5px;
+}
+
+.task-completed {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
